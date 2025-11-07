@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name         ERP JobApplication Visited Marker
 // @namespace    https://digitecgalaxus.ch/
-// @version      1.0
+// @version      1.1
+// @updateUrl    
 // @description  Mark ERP JobApplication profiles as visited and gray them out in the dashboard
 // @match        https://erp.digitecgalaxus.ch/de/JobApplication*
 // @grant        none
