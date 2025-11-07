@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         ERP JobApplication Visited Marker
 // @namespace    https://digitecgalaxus.ch/
-// @version      1.1
-// @updateUrl    
+// @version      1.0
 // @description  Mark ERP JobApplication profiles as visited and gray them out in the dashboard
 // @match        https://erp.digitecgalaxus.ch/de/JobApplication*
+// @updateURL    https://raw.githubusercontent.com/sebastianzillessen/dg-tampermonkey/refs/heads/main/dg-erp-jobdashboard-mark-visited.users.js?token=GHSAT0AAAAAADNRATRXK57RLKFYG3X2QORG2INTROQ
+// @downloadURL  https://raw.githubusercontent.com/sebastianzillessen/dg-tampermonkey/refs/heads/main/dg-erp-jobdashboard-mark-visited.users.js?token=GHSAT0AAAAAADNRATRXK57RLKFYG3X2QORG2INTROQ
 // @grant        none
 // ==/UserScript==
 
@@ -35,7 +36,7 @@
         Object.assign(btn.style, {
             position: 'fixed',
             bottom: '20px',
-            right: '20px',
+            right: '50%',
             zIndex: 9999,
             padding: '8px 14px',
             background: isVisited ? '#777' : '#0078d4',
@@ -81,7 +82,7 @@
                 if (match && visited.includes(match[1])) {
                     const row = link.closest('tr');
                     row.style.opacity = '0.2';
-                    row.style.pointerEvents = 'none';
+                    row.title = "Was marked as 'visited' with the tempermonkey extension";
                 }
             });
         }
