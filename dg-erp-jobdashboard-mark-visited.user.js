@@ -4,8 +4,8 @@
 // @version      1.3
 // @description  Mark ERP JobApplication profiles as visited and gray them out in the dashboard
 // @match        https://erp.digitecgalaxus.ch/*/JobApplication*
-// @updateURL    https://raw.githubusercontent.com/sebastianzillessen/dg-tampermonkey/refs/heads/main/dg-erp-jobdashboard-mark-visited.users.js
-// @downloadURL  https://raw.githubusercontent.com/sebastianzillessen/dg-tampermonkey/refs/heads/main/dg-erp-jobdashboard-mark-visited.users.js
+// @updateURL    https://raw.githubusercontent.com/sebastianzillessen/dg-tampermonkey/refs/heads/main/dg-erp-jobdashboard-mark-visited.user.js
+// @downloadURL  https://raw.githubusercontent.com/sebastianzillessen/dg-tampermonkey/refs/heads/main/dg-erp-jobdashboard-mark-visited.user.js
 // @grant        none
 // ==/UserScript==
 
