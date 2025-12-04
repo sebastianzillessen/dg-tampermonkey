@@ -36,6 +36,7 @@
         const markedForMe = new Set(getMarkedForMe());
 
         // mark all visited links and clean inexistent ones
+        let visitedChanged = false;
         for (const visitedId of visited) {
             const link = document.querySelector(`a[href*="/JobApplication/${visitedId}"]`);
             if (link) {
@@ -44,11 +45,15 @@
                 row.title = "Was marked as 'visited' with the tempermonkey extension";
             } else {
                 visited.delete(visitedId);
-                saveVisited(Array.from(visited));
+                visitedChanged = true;
             }
+        }
+        if (visitedChanged) {
+            saveVisited(Array.from(visited));
         }
 
         // mark all marked-for-me links and clean inexistent ones
+        let markedChanged = false;
         for (const markedId of markedForMe) {
             const link = document.querySelector(`a[href*="/JobApplication/${markedId}"]`);
             if (link) {
@@ -57,8 +62,11 @@
                 row.title = "Was marked as 'important' with the tempermonkey extension";
             } else {
                 markedForMe.delete(markedId);
-                saveMarkedForMe(Array.from(markedForMe));
+                markedChanged = true;
             }
+        }
+        if (markedChanged) {
+            saveMarkedForMe(Array.from(markedForMe));
         }
     }
 
