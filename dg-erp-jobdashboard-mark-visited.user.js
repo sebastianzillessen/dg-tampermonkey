@@ -146,7 +146,7 @@
     ) {
         // Observe DOM changes if content loads dynamically
         const observer = new MutationObserver(markVisitedLinks);
-        observer.observe(document.body, {childList: true, subtree: true});
+        observer.observe(document.body, { childList: true, subtree: true });
 
         markVisitedLinks();
     }
