@@ -41,7 +41,7 @@
             if (link) {
                 const row = link.closest("tr");
                 row.style.opacity = "0.2";
-                row.title = "Was marked as 'visited' with the tempermonkey extension";
+                row.title = "Was marked as 'visited' with the tampermonkey extension";
             } else {
                 visited.delete(visitedId);
                 saveVisited(Array.from(visited));
@@ -54,7 +54,7 @@
             if (link) {
                 const row = link.closest("tr");
                 row.style.backgroundColor = "yellow";
-                row.title = "Was marked as 'important' with the tempermonkey extension";
+                row.title = "Was marked as 'important' with the tampermonkey extension";
             } else {
                 markedForMe.delete(markedId);
                 saveMarkedForMe(Array.from(markedForMe));
