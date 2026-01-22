@@ -1,13 +1,41 @@
 // ==UserScript==
 // @name         ERP JobApplication Visited Marker
 // @namespace    https://digitecgalaxus.ch/
-// @version      1.4
+// @version      1.5
+// @author       Sebastian Zillessen
 // @description  Mark ERP JobApplication profiles as visited and gray them out in the dashboard
 // @match        https://erp.digitecgalaxus.ch/*/JobApplication*
 // @updateURL    https://raw.githubusercontent.com/sebastianzillessen/dg-tampermonkey/refs/heads/main/dg-erp-jobdashboard-mark-visited.user.js
 // @downloadURL  https://raw.githubusercontent.com/sebastianzillessen/dg-tampermonkey/refs/heads/main/dg-erp-jobdashboard-mark-visited.user.js
 // @grant        none
 // ==/UserScript==
+
+function createDeprecationWarning() {
+    const warning = document.createElement("div");
+    warning.innerHTML = `
+        <strong>⚠️ Deprecation Notice</strong><br>
+        I moved the scripts to a DG repository.<br>
+        Can you please remove "<em>ERP JobApplication Visited Marker</em>" from your Tampermonkey Scripts
+        and instead add the new version "<em><a href="https://github.com/DigitecGalaxus/TampermonkeyScriptsCollection/raw/refs/heads/master/dg-erp-jobdashboard-mark-visited.user.js" target="_blank">ERP JobApplication Enhancements</a></em>"?
+    `;
+    Object.assign(warning.style, {
+        position: "fixed",
+        bottom: "20px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        zIndex: 10000,
+        padding: "16px 24px",
+        background: "#fff3cd",
+        color: "#856404",
+        border: "2px solid #ffc107",
+        borderRadius: "8px",
+        fontSize: "14px",
+        textAlign: "center",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+        maxWidth: "500px",
+    });
+    document.body.appendChild(warning);
+}
 
 (function () {
     "use strict";
@@ -71,6 +99,7 @@
         const isVisited = visited.includes(id);
         const isMarked = markedForMe.includes(id);
 
+        createDeprecationWarning();
         // Create toggle button
         const btnVisited = document.createElement("button");
         btnVisited.textContent = isVisited
@@ -149,5 +178,6 @@
         observer.observe(document.body, { childList: true, subtree: true });
 
         markVisitedLinks();
+        createDeprecationWarning();
     }
 })();
